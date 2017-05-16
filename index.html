@@ -6,14 +6,22 @@
     <script src="js/jquery-3.2.1.js"></script>
     <script src="js/scripts.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Bangers" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Barrio" rel="stylesheet">
     <title></title>
   </head>
   <body>
     <div id="launch">
       <div class="header">
-        <h1 class ="welcome">Game Title</h1>
-        <p><img src="css/screenshot.png" alt=""></p>
-        <center>
+        <h1 class ="welcome">Game</h1>
+        <form id="formOne">
+          <div class="form-group username">
+            <label for="username"></label>
+            <input type="text" class="form-control" id="userName" placeholder="Enter your Username">
+          </div>
+          <button type="submit" class="btn">Start</button>
+        </form>
+        <p><img id="screenshot" src="css/screenshot.png" alt=""></p>
+        <!-- <center> -->
         <div class="options" id="play" value="play">Play</div>
         <div class="options" id="learn" value="howTo">How To Play</div>
       </div>

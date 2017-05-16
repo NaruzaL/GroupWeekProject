@@ -10,5 +10,12 @@ $(document).ready(function(){
     $("#moves").slideUp( 300 ).delay( 900 ).fadeIn( 1000 );
     $("#goals").slideUp( 300 ).delay( 1500 ).fadeIn( 1000 );
   });
-
+  $("#play").click(function(){
+    $("#screenshot").fadeOut();
+    $(".options").fadeOut();
+    $("#moves").fadeOut();
+    $("#arrows").fadeOut();
+    $("#goals").fadeOut();
+    $("form#formOne").fadeIn(3000);
+  });
 });

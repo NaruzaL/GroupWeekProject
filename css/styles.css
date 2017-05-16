@@ -4,7 +4,7 @@ body{
   background-attachment: fixed;
   background-position: bottom;
   background-size: cover;
-  color: floralwhite;
+  color: #E55F14;
 }
 .groupbio {
   height: 0%;
@@ -30,7 +30,7 @@ body{
 }
 .welcome{
   font-family: 'Barrio', cursive;
-  color: floralwhite;
+  color: navy;
   font-size: 150px;
 }
 #launch{

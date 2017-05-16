@@ -6,13 +6,25 @@ body{
   background-size: cover;
   color: floralwhite;
 }
+.groupbio {
+  height: 0%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.9);
+  overflow-y: hidden;
+  transition: 0.5s;
+}
 .welcome{
   font-family: 'Barrio', cursive;
   color: floralwhite;
   font-size: 150px;
 }
 #launch{
-text-align: center;
+  text-align: center;
   /*position:fixed;*/
   padding-top: 5%;
   padding-bottom: 95%;

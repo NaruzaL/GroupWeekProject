@@ -1,3 +1,8 @@
+
+
+
+
+
 $(document).ready(function(){
   // $("#play").click(function(){
   //   $("#launch").css({
@@ -17,5 +22,8 @@ $(document).ready(function(){
     $("#arrows").fadeOut();
     $("#goals").fadeOut();
     $("form#formOne").fadeIn(3000);
+  });
+  $("#bio").click(function(){
+    $(".groupbio").css({"height" : "100%"});
   });
 });

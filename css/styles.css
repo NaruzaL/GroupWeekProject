@@ -108,6 +108,9 @@ form{
 .test{
   padding-bottom: 0;
 }
+.username{
+  color: navy;
+}
 #bio{
   /*text-align: center;*/
   background-color: rgba(255,255,255,0.8);

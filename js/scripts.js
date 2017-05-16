@@ -1,23 +1,21 @@
 
-
-
-
-
 $(document).ready(function(){
   $("#learn").click(function(){
-    $("#arrows").delay( 300 ).fadeToggle( 1000 );
-    $("#moves").delay( 900 ).fadeToggle( 1000 );
-    $("#goals").delay( 1500 ).fadeToggle( 1000 );
-    $(".links").toggle();
+    $("#arrows").delay( 300 ).fadeIn( 1000 );
+    $("#moves").delay( 400 ).fadeIn( 1000 );
+    $("#goals").delay( 500 ).fadeIn( 1000 );
+    $(".links").fadeOut();
+    $('html, body').animate({scrollTop:730},'50');
   });
 
   $("#play").click(function(){
-    $("#screenshot").fadeOut();
-    $(".options").fadeOut();
-    $("#moves").fadeOut();
-    $("#arrows").fadeOut();
-    $("#goals").fadeOut();
+    $("#screenshot").hide();
+    $(".options").hide();
+    $("#moves").hide();
+    $("#arrows").hide();
+    $("#goals").hide();
     $("form#formOne").fadeIn(3000);
+    $('html, body').animate({scrollTop:0},'50');
   });
 
   $("#bio").click(function(){

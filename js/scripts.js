@@ -25,5 +25,11 @@ $(document).ready(function(){
   $("#hidebio").click(function(){
     $(".groupbio").css({"height" : "0%"});
   });
-
+  $(function(){
+    var x = 0;
+    setInterval(function(){
+        x-=2;
+        $('body').css('background-position', x + 'px 0px');
+    }, 10);
+  });
 });

@@ -8,6 +8,7 @@ $(document).ready(function(){
     $("#arrows").delay( 300 ).fadeToggle( 1000 );
     $("#moves").delay( 900 ).fadeToggle( 1000 );
     $("#goals").delay( 1500 ).fadeToggle( 1000 );
+    $(".links").toggle();
   });
 
   $("#play").click(function(){
@@ -26,5 +27,5 @@ $(document).ready(function(){
   $("#hidebio").click(function(){
     $(".groupbio").css({"height" : "0%"});
   });
-  
+
 });

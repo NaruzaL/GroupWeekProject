@@ -27,17 +27,22 @@ body{
   text-align: center;
   background-color: rgba(255,255,255,0.8);
   margin: 0;
+  padding-top: 50px;
+  font-family: 'Barrio', cursive;
+}
+#hidebio{
+  padding-top: 50px;
+  font-family: 'Barrio', cursive;
 }
 .welcome{
   font-family: 'Barrio', cursive;
   color: navy;
   font-size: 150px;
+  margin-top: 0px;
 }
 #launch{
   text-align: center;
-  /*position:fixed;*/
-  padding-top: 5%;
-  padding-bottom: 95%;
+  padding-bottom: 100%;
   margin:0;
   top:0;
   left:0;
@@ -84,6 +89,22 @@ img{
   border-radius: 5px;
   padding: 10px;
   background-color: rgb(107,136,254);
+  font-family: 'Bangers', cursive;
+  font-size: 50px;
+  letter-spacing: 2px;
+  color: #FAEBD7;
+  text-align: center;
+}
+#moves p, #arrows p, #goals p {
+  padding: 30px;
+  line-height: 50px;
+
+}
+#moves p {
+  margin-right: 30px;
+}
+strong{
+  color: navy;
 }
 .options{
   font-family: 'Bangers', cursive;
@@ -138,6 +159,7 @@ img{
 .header{
   text-align: center;
 }
+
 form{
   color: floralwhite;
   font-size: 50px;
@@ -150,4 +172,8 @@ form{
 .form-control{
   font-size: 30px;
   height: 75px;
+}
+.test{
+  padding-bottom: 0;
+
 }

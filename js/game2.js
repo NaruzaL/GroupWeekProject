@@ -140,6 +140,10 @@ function update() {
 
   game.physics.arcade.collide(player, layer);
 
+   if (this.game.physics.collide (this.player, this.enemy)) {
+     this.player.kill();
+     game.state.start('Over');
+   }
   player.body.velocity.x = 0;
 
     if (cursors.left.isDown)
@@ -227,6 +231,14 @@ function render() {
 
 
 }
+
+Game.Over = function(game) {};
+Game.Over.prototype = {create: function()
+  {this.spacebar = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+  label = game.add.text(width / 2 , height / 2,'\nGAME OVER\nPress SPACE to restart',{ font: '22px Lucida Console', fill: '#fff', align: 'center'});    label.anchor.setTo(0.5, 0.5);  },
+  update: function() {
+    if (this.spacebar.isDown) game.state.start('Play');  }};
+
 
 function platformerFollow() {
     game.camera.follow(player, Phaser.Camera.FOLLOW_PLATFORMER);

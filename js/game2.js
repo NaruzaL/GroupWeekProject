@@ -219,17 +219,6 @@ function update() {
       if(player.body.y < 0){
         playerDeath();
     }
-
-    if(!player.body.onFloor()){
-      player.frame = 5;
-    }
-    else{
-      if(!cursors.right.isDown && !cursors.left.isDown){
-        player.frame = 0;
-      }
-
-    }
-
       // if(enemy.body.x <= 0){
       //   enemy.velocity = 30;
     // }
@@ -237,7 +226,7 @@ function update() {
     // if(player.body.x > 3168){
     //   alert("TEST");
     // }
-  }
+}
 
 function render() {
 

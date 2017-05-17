@@ -167,6 +167,7 @@ function update() {
     gameOver(game);
 
   }
+
   player.body.velocity.x = 0;
 
     if (cursors.left.isDown)
@@ -214,7 +215,7 @@ function update() {
     {
         player.body.velocity.y = -250;
         jumpTimer = game.time.now + 750;
-        // player.frame = 5;
+
     }
 
     if(!player.body.onFloor()){
@@ -226,57 +227,33 @@ function update() {
       }
     }
 
-      if(player.body.y < 0){
-        playerDeath();
-    }
-
-    if(!player.body.onFloor()){
-      player.frame = 5;
-    }
-    else{
-      if(!cursors.right.isDown && !cursors.left.isDown){
-        player.frame = 0;
-      }
-
-    }
-
-      if(player.body.y < 0){
-        playerDeath();
-
-    }
-
-    // if(player.body.x > 3168){
-    //   alert("TEST");
-    // }
-  // }
-  if (enemy1.body.x < 50) {
+    if (enemy1.body.x < 24) {
     enemy1.body.velocity.x = 30;
     }
     if(enemy1.body.x > 161) {
     enemy1.body.velocity.x = -30;
     }
 
-    if (enemy2.body.x < 1700) {
+    if (enemy2.body.x < 1799) {
     enemy2.body.velocity.x = 30;
     }
-    if(enemy2.body.x > 1861) {
+    if(enemy2.body.x > 1848) {
     enemy2.body.velocity.x = -30;
     }
 
-    if (enemy3.body.x < 1100) {
+    if (enemy3.body.x < 871) {
     enemy3.body.velocity.x = 30;
     }
     if(enemy3.body.x > 1161) {
     enemy3.body.velocity.x = -30;
     }
 
-    if (enemy4.body.x < 1300) {
+    if (enemy4.body.x < 1336) {
     enemy4.body.velocity.x = 30;
     }
     if(enemy4.body.x > 1461) {
     enemy4.body.velocity.x = -30;
     }
-
 }
 function render() {
   game.debug.bodyInfo(player, 16, 16)

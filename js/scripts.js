@@ -6,6 +6,7 @@ $(document).ready(function(){
     $("#goals").delay( 500 ).fadeIn( 1000 );
     $(".links").fadeOut();
     $('html, body').animate({scrollTop:730},'50');
+    $("#top").delay( 500 ).fadeIn( 1000 );
   });
 
   $("#play").click(function(){
@@ -31,5 +32,12 @@ $(document).ready(function(){
         x-=2;
         $('body').css('background-position', x + 'px 0px');
     }, 10);
+  });
+  $("#top").click(function(){
+    $("#moves").hide();
+    $("#arrows").hide();
+    $("#goals").hide();
+    $("#top").hide();
+    $('html, body').animate({scrollTop:0},'50');
   });
 });

@@ -22,6 +22,7 @@ function preload() {
   var sound;
   var enemy;
 
+
 function create() {
 
 

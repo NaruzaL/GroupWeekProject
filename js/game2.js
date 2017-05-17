@@ -7,7 +7,8 @@ function preload() {
     game.load.image('marioTileset', 'assets/marioTileset.png');
     game.load.audio('theme', 'assets/music/mario-theme.mp3');
     game.load.image('marioEnemy', 'assets/marioEnemy.png', 16, 16, 1);
-    game.load.spritesheet('hero', 'assets/marioCharacters.png', 16.6, 16.6,);
+    game.load.spritesheet('hero', 'assets/marioCharacters.png', 16.6, 16.6);
+    game.load.image('gameOverScreen', 'assets/gameOver.png', 240, 240, 0, 0,);
 }
 
   var map;
@@ -93,37 +94,10 @@ function create() {
     player.animations.add('right', [0,1,2,3], 12, true);
     player.animations.add('turn', [4], 12, true);
 
-    enemy1 = game.add.sprite(160, 190, "marioEnemy");
-    game.physics.enable(enemy1, Phaser.Physics.ARCADE);
-    enemy1.anchor.setTo(.5, .5);
-    enemy1.body.bounce.y = 0;
-    enemy1.body.velocity.x = -30;
-    enemy1.body.collideWorldBounds = true;
-    enemy1.body.setSize(16, 16, -16, 32);
+    enemySpawn();
 
-    enemy2 = game.add.sprite(1860, 190, "marioEnemy");
-    game.physics.enable(enemy2, Phaser.Physics.ARCADE);
-    enemy2.anchor.setTo(.5, .5);
-    enemy2.body.bounce.y = 0;
-    enemy2.body.velocity.x = -30;
-    enemy2.body.collideWorldBounds = true;
-    enemy2.body.setSize(16, 16, -16, 32);
-
-    enemy3 = game.add.sprite(1160, 190, "marioEnemy");
-    game.physics.enable(enemy3, Phaser.Physics.ARCADE);
-    enemy3.anchor.setTo(.5, .5);
-    enemy3.body.bounce.y = 0;
-    enemy3.body.velocity.x = -30;
-    enemy3.body.collideWorldBounds = true;
-    enemy3.body.setSize(16, 16, -16, 32);
-
-    enemy4 = game.add.sprite(1460, 190, "marioEnemy");
-    game.physics.enable(enemy4, Phaser.Physics.ARCADE);
-    enemy4.anchor.setTo(.5, .5);
-    enemy4.body.bounce.y = 0;
-    enemy4.body.velocity.x = -30;
-    enemy4.body.collideWorldBounds = true;
-    enemy4.body.setSize(16, 16, -16, 32);
+    gameOverScreen = game.add.sprite('gameOverScreen', player.body.x, player.body.y - 120);
+    gameOverScreen.visible = false;
 
     game.camera.follow(player);
 
@@ -160,11 +134,11 @@ function update() {
   //    game.state.start('Over');
   //  }
   if(player.body.y >= 227){
-    if(isPaused === false){
       isPaused = true;
-      togglePause();
+      // togglePause();
+      gameOver(game);
     }
-    gameOver(game);
+
 
   }
 
@@ -260,7 +234,48 @@ function render() {
 
 }
 
+enemySpawn = function(game){
+  enemy1 = game.add.sprite(160, 190, "marioEnemy");
+  game.physics.enable(enemy1, Phaser.Physics.ARCADE);
+  enemy1.anchor.setTo(.5, .5);
+  enemy1.body.bounce.y = 0;
+  enemy1.body.velocity.x = -30;
+  enemy1.body.collideWorldBounds = true;
+  enemy1.body.setSize(16, 16, -16, 32);
+
+  enemy2 = game.add.sprite(1860, 190, "marioEnemy");
+  game.physics.enable(enemy2, Phaser.Physics.ARCADE);
+  enemy2.anchor.setTo(.5, .5);
+  enemy2.body.bounce.y = 0;
+  enemy2.body.velocity.x = -30;
+  enemy2.body.collideWorldBounds = true;
+  enemy2.body.setSize(16, 16, -16, 32);
+
+  enemy3 = game.add.sprite(1160, 190, "marioEnemy");
+  game.physics.enable(enemy3, Phaser.Physics.ARCADE);
+  enemy3.anchor.setTo(.5, .5);
+  enemy3.body.bounce.y = 0;
+  enemy3.body.velocity.x = -30;
+  enemy3.body.collideWorldBounds = true;
+  enemy3.body.setSize(16, 16, -16, 32);
+
+  enemy4 = game.add.sprite(1460, 190, "marioEnemy");
+  game.physics.enable(enemy4, Phaser.Physics.ARCADE);
+  enemy4.anchor.setTo(.5, .5);
+  enemy4.body.bounce.y = 0;
+  enemy4.body.velocity.x = -30;
+  enemy4.body.collideWorldBounds = true;
+  enemy4.body.setSize(16, 16, -16, 32);
+}
+
 gameOver = function(game){
+  // gameOverScreen = game.add.sprite('gameOverScreen', player.body.x, player.body.y - 120);
+  gameOverScreen.visible = true;
+  player.kill();
+  player.body.x = 25;
+  player.body.y = 192;
+  console.log("TEST");
+  player.revive();
 
 }
   //update: function() {

@@ -98,36 +98,36 @@ function create() {
     player.animations.add('turn', [4], 12, true);
 
     enemy1 = game.add.sprite(160, 190, "marioEnemy");
-    game.physics.enable(enemy, Phaser.Physics.ARCADE);
-    enemy.anchor.setTo(.5, .5);
-    enemy.body.bounce.y = 0;
-    enemy.body.velocity.x = -30;
-    enemy.body.collideWorldBounds = true;
-    enemy.body.setSize(16, 16, -16, 32);
+    game.physics.enable(enemy1, Phaser.Physics.ARCADE);
+    enemy1.anchor.setTo(.5, .5);
+    enemy1.body.bounce.y = 0;
+    enemy1.body.velocity.x = -30;
+    enemy1.body.collideWorldBounds = true;
+    enemy1.body.setSize(16, 16, -16, 32);
 
     enemy2 = game.add.sprite(1860, 190, "marioEnemy");
-    game.physics.enable(enemy, Phaser.Physics.ARCADE);
-    enemy.anchor.setTo(.5, .5);
-    enemy.body.bounce.y = 0;
-    enemy.body.velocity.x = -30;
-    enemy.body.collideWorldBounds = true;
-    enemy.body.setSize(16, 16, -16, 32);
+    game.physics.enable(enemy2, Phaser.Physics.ARCADE);
+    enemy2.anchor.setTo(.5, .5);
+    enemy2.body.bounce.y = 0;
+    enemy2.body.velocity.x = -30;
+    enemy2.body.collideWorldBounds = true;
+    enemy2.body.setSize(16, 16, -16, 32);
 
     enemy3 = game.add.sprite(1160, 190, "marioEnemy");
-    game.physics.enable(enemy, Phaser.Physics.ARCADE);
-    enemy.anchor.setTo(.5, .5);
-    enemy.body.bounce.y = 0;
-    enemy.body.velocity.x = -30;
-    enemy.body.collideWorldBounds = true;
-    enemy.body.setSize(16, 16, -16, 32);
+    game.physics.enable(enemy3, Phaser.Physics.ARCADE);
+    enemy3.anchor.setTo(.5, .5);
+    enemy3.body.bounce.y = 0;
+    enemy3.body.velocity.x = -30;
+    enemy3.body.collideWorldBounds = true;
+    enemy3.body.setSize(16, 16, -16, 32);
 
     enemy4 = game.add.sprite(1460, 190, "marioEnemy");
-    game.physics.enable(enemy, Phaser.Physics.ARCADE);
-    enemy.anchor.setTo(.5, .5);
-    enemy.body.bounce.y = 0;
-    enemy.body.velocity.x = -30;
-    enemy.body.collideWorldBounds = true;
-    enemy.body.setSize(16, 16, -16, 32);
+    game.physics.enable(enemy4, Phaser.Physics.ARCADE);
+    enemy4.anchor.setTo(.5, .5);
+    enemy4.body.bounce.y = 0;
+    enemy4.body.velocity.x = -30;
+    enemy4.body.collideWorldBounds = true;
+    enemy4.body.setSize(16, 16, -16, 32);
 
     game.camera.follow(player);
 
@@ -205,28 +205,28 @@ function update() {
       }
     }
 
-    if (enemy1.body.x < 50) {
+    if (enemy1.body.x < 24) {
     enemy1.body.velocity.x = 30;
     }
     if(enemy1.body.x > 161) {
     enemy1.body.velocity.x = -30;
     }
 
-    if (enemy2.body.x < 1700) {
+    if (enemy2.body.x < 1799) {
     enemy2.body.velocity.x = 30;
     }
-    if(enemy2.body.x > 1861) {
+    if(enemy2.body.x > 1848) {
     enemy2.body.velocity.x = -30;
     }
 
-    if (enemy3.body.x < 1100) {
+    if (enemy3.body.x < 871) {
     enemy3.body.velocity.x = 30;
     }
     if(enemy3.body.x > 1161) {
     enemy3.body.velocity.x = -30;
     }
 
-    if (enemy4.body.x < 1300) {
+    if (enemy4.body.x < 1336) {
     enemy4.body.velocity.x = 30;
     }
     if(enemy4.body.x > 1461) {

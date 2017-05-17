@@ -206,17 +206,7 @@ function update() {
     if(!player.body.onFloor()){
       player.frame = 5;
     }
-    else{
-      if(!cursors.right.isDown && !cursors.left.isDown){
-        player.frame = 0;
-      }
 
-    }
-
-      if(player.body.y < 0){
-        playerDeath();
-
-    }
 
     if(player.body.x > 3168){
       alert("TEST");

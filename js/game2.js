@@ -21,8 +21,9 @@ function preload() {
   var theme;
   var sound;
   var enemy;
-  // var lives;
-  // var death;
+  var enemy2;
+  var enemy3;
+  var enemy4;
 
 function create() {
 
@@ -96,17 +97,6 @@ function create() {
     player.animations.add('right', [0,1,2,3], 12, true);
     player.animations.add('turn', [4], 12, true);
 
-    // lives = game.add.group();
-    // game.add.text(game.world.width - 100, 10, 'Lives : ', { font: '34px Arial', fill: '#fff' });
-    //
-    // for (var i = 0; i < 3; i++)
-    // {
-    //     var dudes = lives.create(game.world.width - 100 + (30 * i), 60, 'hero');
-    //     dudes.anchor.setTo(0.5, 0.5);
-    //     dudes.angle = 90;
-    //     dudes.alpha = 0.4;
-    // }
-
     enemy = game.add.sprite(160, 190, "marioEnemy");
     game.physics.enable(enemy, Phaser.Physics.ARCADE);
     enemy.anchor.setTo(.5, .5);
@@ -115,7 +105,7 @@ function create() {
     enemy.body.collideWorldBounds = true;
     enemy.body.setSize(16, 16, -16, 32);
 
-    enemy = game.add.sprite(1860, 190, "marioEnemy");
+    enemy2 = game.add.sprite(1860, 190, "marioEnemy");
     game.physics.enable(enemy, Phaser.Physics.ARCADE);
     enemy.anchor.setTo(.5, .5);
     enemy.body.bounce.y = 0;
@@ -123,7 +113,7 @@ function create() {
     enemy.body.collideWorldBounds = true;
     enemy.body.setSize(16, 16, -16, 32);
 
-    enemy = game.add.sprite(1160, 190, "marioEnemy");
+    enemy3 = game.add.sprite(1160, 190, "marioEnemy");
     game.physics.enable(enemy, Phaser.Physics.ARCADE);
     enemy.anchor.setTo(.5, .5);
     enemy.body.bounce.y = 0;
@@ -131,7 +121,7 @@ function create() {
     enemy.body.collideWorldBounds = true;
     enemy.body.setSize(16, 16, -16, 32);
 
-    enemy = game.add.sprite(1460, 190, "marioEnemy");
+    enemy4 = game.add.sprite(1460, 190, "marioEnemy");
     game.physics.enable(enemy, Phaser.Physics.ARCADE);
     enemy.anchor.setTo(.5, .5);
     enemy.body.bounce.y = 0;
@@ -153,10 +143,9 @@ function update() {
 
   game.physics.arcade.collide(player, layer);
 
-  //  if (player.body.y >= 227) {
-  //    this.player.kill();
-  //    game.state.start('Over');
-  //  }
+   if (player.body.y >= 227) {
+     this.player.kill();
+   }
   player.body.velocity.x = 0;
 
     if (cursors.left.isDown)
@@ -216,65 +205,40 @@ function update() {
       }
     }
 
-      if(player.body.y < 0){
-        playerDeath();
+    if (enemy1.body.x < 50) {
+    enemy1.body.velocity.x = 30;
     }
-      // if(enemy.body.x <= 0){
-      //   enemy.velocity = 30;
-    // }
+    if(enemy1.body.x > 161) {
+    enemy1.body.velocity.x = -30;
+    }
 
-    // if(player.body.x > 3168){
-    //   alert("TEST");
-    // }
+    if (enemy2.body.x < 1700) {
+    enemy2.body.velocity.x = 30;
+    }
+    if(enemy2.body.x > 1861) {
+    enemy2.body.velocity.x = -30;
+    }
+
+    if (enemy3.body.x < 1100) {
+    enemy3.body.velocity.x = 30;
+    }
+    if(enemy3.body.x > 1161) {
+    enemy3.body.velocity.x = -30;
+    }
+
+    if (enemy4.body.x < 1300) {
+    enemy4.body.velocity.x = 30;
+    }
+    if(enemy4.body.x > 1461) {
+    enemy4.body.velocity.x = -30;
+    }
+
 }
 
 function render() {
 
-
 }
 
-// function playerFalls (player) {
-//
-//     live = lives.getFirstAlive();
-//
-//     if (live)
-//     {
-//         live.kill();
-//     }
-//
-//     //  And create an explosion :)
-//     var death = explosions.getFirstExists(false);
-//     explosion.reset(player.body.x, player.body.y);
-//     explosion.play('kaboom', 30, false, true);
-//
-//     // When the player dies
-//     if (lives.countLiving() < 1)
-//     {
-//         player.kill();
-//
-//         stateText.text=" GAME OVER \n Click to restart";
-//         stateText.visible = true;
-//
-//         //the "click to restart" handler
-//         game.input.onTap.addOnce(restart,this);
-//     }
-//
-// }
-//
-// function restart () {
-//
-//     lives.callAll('revive');
-//     enemy.removeAll();
-//     createEnemies();
-//     player.revive();
-//     stateText.visible = false;
-//
-// }
-
-
-// Game.Over. = function()
-//   label = game.add.text(width / 2 , height / 2,'\nGAME OVER\nPress SPACE to restart',{ font: '22px Lucida Console', fill: '#fff', align: 'center'}); label.anchor.setTo(0.5, 0.5);  },
-//   if (this.spacebar.isDown) game.state.start('Play');  }};
 
 
 function platformerFollow() {

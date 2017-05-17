@@ -12,6 +12,9 @@ img{
 strong{
   color: navy;
 }
+em{
+  font-size: 20px;
+}
 form{
   color: floralwhite;
   font-size: 50px;
@@ -115,10 +118,17 @@ form{
 .username{
   color: navy;
 }
-.col{
+.col-md-9{
   text-align: left;
+  font-family: 'Monda', sans-serif;
+  font-size: 75px;
+  display: inline-block;
+  line-height: 150px;
 }
-
+#guy{
+  display: inline-block;
+  line-height: 250px;
+}
 #bio{
   /*text-align: center;*/
   background-color: rgba(255,255,255,0.8);

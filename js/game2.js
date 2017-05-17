@@ -234,10 +234,10 @@ function update() {
     enemy1.body.velocity.x = -30;
     }
 
-    if (enemy2.body.x < 1799) {
+    if (enemy2.body.x < 1775) {
     enemy2.body.velocity.x = 30;
     }
-    if(enemy2.body.x > 1848) {
+    if(enemy2.body.x > 1823) {
     enemy2.body.velocity.x = -30;
     }
 

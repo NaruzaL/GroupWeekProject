@@ -20,7 +20,7 @@ function preload() {
   var scaleWindow;
   var theme;
   var sound;
-  var enemy;
+  var enemy1;
   var enemy2;
   var enemy3;
   var enemy4;
@@ -97,7 +97,7 @@ function create() {
     player.animations.add('right', [0,1,2,3], 12, true);
     player.animations.add('turn', [4], 12, true);
 
-    enemy = game.add.sprite(160, 190, "marioEnemy");
+    enemy1 = game.add.sprite(160, 190, "marioEnemy");
     game.physics.enable(enemy, Phaser.Physics.ARCADE);
     enemy.anchor.setTo(.5, .5);
     enemy.body.bounce.y = 0;

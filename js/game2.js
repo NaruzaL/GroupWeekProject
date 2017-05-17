@@ -21,7 +21,7 @@ function preload() {
   var theme;
   var sound;
   var enemy;
-  var lives;
+  // var lives;
   // var death;
 
 function create() {
@@ -153,10 +153,10 @@ function update() {
 
   game.physics.arcade.collide(player, layer);
 
-   if (player.body.y >= 227) {
-     this.player.kill();
-     game.state.start('Over');
-   }
+  //  if (player.body.y >= 227) {
+  //    this.player.kill();
+  //    game.state.start('Over');
+  //  }
   player.body.velocity.x = 0;
 
     if (cursors.left.isDown)

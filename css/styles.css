@@ -88,7 +88,7 @@ form{
   padding-bottom: 5px;
   margin-bottom: 50px;
 }
-.btn:hover{
+.btn:hover, .biophoto:hover{
   opacity: 1;
   /*Reflection*/
  -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(.7, transparent), to(rgba(0,0,0,0.4)));
@@ -115,6 +115,10 @@ form{
 .username{
   color: navy;
 }
+.col{
+  text-align: left;
+}
+
 #bio{
   /*text-align: center;*/
   background-color: rgba(255,255,255,0.8);
@@ -195,4 +199,7 @@ form{
 }
 #one {
   margin-right: 37px;
+}
+#groupbio{
+  align-self: center;
 }

@@ -232,7 +232,7 @@ function update() {
 
       // if(enemy.body.x <= 0){
       //   enemy.velocity = 30;
-    }
+    // }
 
     // if(player.body.x > 3168){
     //   alert("TEST");

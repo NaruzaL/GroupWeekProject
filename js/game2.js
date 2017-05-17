@@ -94,7 +94,7 @@ function create() {
     player.animations.add('right', [0,1,2,3], 12, true);
     player.animations.add('turn', [4], 12, true);
 
-    enemySpawn();
+    enemySpawn(game);
 
     gameOverScreen = game.add.sprite('gameOverScreen', player.body.x, player.body.y - 120);
     gameOverScreen.visible = false;
@@ -228,7 +228,7 @@ function update() {
     if(enemy4.body.x > 1461) {
     enemy4.body.velocity.x = -30;
     }
-}
+
 function render() {
   game.debug.bodyInfo(player, 16, 16)
 

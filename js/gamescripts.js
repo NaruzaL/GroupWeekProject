@@ -5,7 +5,6 @@ var Keys = Phaser.Keyboard;
 function preload() {
     game.load.tilemap('map', 'assets/marioMap.json', null, Phaser.Tilemap.TILED_JSON);
     game.load.image('marioTileset', 'assets/marioTileset.png');
-    game.load.audio('theme', 'assets/music/mario-theme.mp3');
     game.load.image('marioEnemy', 'assets/marioEnemy.png', 16, 16, 1);
     game.load.spritesheet('hero', 'assets/marioCharacters.png', 16.6, 16.6,);
 }
@@ -18,8 +17,6 @@ function preload() {
   var jumpTimer = 0;
   var player;
   var scaleWindow;
-  var theme;
-  var sound;
   var enemy;
 
 
@@ -39,8 +36,6 @@ function create() {
     aspect_ratio = canvas_width / canvas_height;
     if (aspect_ratio > 1) scale_ratio = canvas_height / canvas_height_max;
     else scale_ratio = canvas_width / canvas_width_max;
-
-
 
 
     game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -73,11 +68,6 @@ function create() {
     map.setCollisionByIndex(37); // Platform in 2nd level
     map.setCollisionByIndex(25);
     map.setCollisionByIndex(34);
-
-    theme = game.add.audio('theme');
-    theme.play();
-    theme.loopFull(0.6);
-    //game.sound.setDecodedCallBack(sound, start, this);
 
     map.setCollisionByIndex(267);
     map.setCollisionByIndex(268);
@@ -209,7 +199,8 @@ function update() {
     }
 
     if(player.body.x > 3168){
-      alert("TEST");
+      game.destroy();
+      $("#mb1").load("game2.html");
     }
   }
 

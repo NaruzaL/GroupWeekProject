@@ -5,10 +5,8 @@ var Keys = Phaser.Keyboard;
 function preload() {
     game.load.tilemap('map', 'assets/marioMap2.json', null, Phaser.Tilemap.TILED_JSON);
     game.load.image('marioTileset', 'assets/marioTileset.png');
-    game.load.audio('theme', 'assets/music/mario-theme.mp3');
     game.load.image('marioEnemy', 'assets/marioEnemy.png', 16, 16, 1);
     game.load.spritesheet('hero', 'assets/marioCharacters.png', 16.6, 16.6);
-    game.load.image('gameOverScreen', 'assets/gameOver.png', 240, 240, 0, 0,);
 }
 
   var map;
@@ -18,15 +16,12 @@ function preload() {
   var jumpButton;
   var jumpTimer = 0;
   var player;
+  var lives = 3;
   var scaleWindow;
-  var theme;
-  var sound;
   var enemy1;
   var enemy2;
   var enemy3;
   var enemy4;
-  var gameOverScreen;
-  var isPaused = false;
 
 function create() {
 
@@ -73,11 +68,6 @@ function create() {
     map.setCollisionByIndex(25);
     map.setCollisionByIndex(34);
 
-    theme = game.add.audio('theme');
-    theme.play();
-    theme.loopFull(0.6);
-    //game.sound.setDecodedCallBack(sound, start, this);
-
     map.setCollisionByIndex(267);
     map.setCollisionByIndex(268);
     map.setCollisionByIndex(300);
@@ -94,10 +84,7 @@ function create() {
     player.animations.add('right', [0,1,2,3], 12, true);
     player.animations.add('turn', [4], 12, true);
 
-    enemySpawn(game);
-
-    gameOverScreen = game.add.sprite('gameOverScreen', player.body.x, player.body.y - 120);
-    gameOverScreen.visible = false;
+    enemySpawn();
 
     game.camera.follow(player);
 
@@ -105,9 +92,9 @@ function create() {
 
     game.world.setBounds(0, 0, 3040, 240, "map");
 
-    // lives = game.add.group();
-    // game.add.text(game.world.width - 100, 10, 'Lives : ', { font: '34px Arial', fill: '#fff' });
-    //
+    lives = game.add.group();
+    // game.add.text(game.world.width - 100, 10, 'Lives : ' + lives, { font: '34px Arial', fill: '#fff' });
+
     // for (var i = 0; i < 3; i++)
     // {
     //     var dude = lives.create(game.world.width - 100 + (30 * i), 60, 'hero');
@@ -120,11 +107,6 @@ function create() {
     jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 }
 
-function togglePause() {
-    game.physics.arcade.isPaused = (game.physics.arcade.isPaused) ? false : true;
-
-}
-
 function update() {
 
   game.physics.arcade.collide(player, layer);
@@ -134,13 +116,11 @@ function update() {
   //    game.state.start('Over');
   //  }
   if(player.body.y >= 227){
-      isPaused = true;
+      //isPaused = true;
       // togglePause();
       gameOver(game);
     }
 
-
-  }
 
   player.body.velocity.x = 0;
 
@@ -228,13 +208,14 @@ function update() {
     if(enemy4.body.x > 1461) {
     enemy4.body.velocity.x = -30;
     }
+  }
 
 function render() {
   game.debug.bodyInfo(player, 16, 16)
 
 }
 
-enemySpawn = function(game){
+function enemySpawn(){
   enemy1 = game.add.sprite(160, 190, "marioEnemy");
   game.physics.enable(enemy1, Phaser.Physics.ARCADE);
   enemy1.anchor.setTo(.5, .5);
@@ -266,16 +247,21 @@ enemySpawn = function(game){
   enemy4.body.velocity.x = -30;
   enemy4.body.collideWorldBounds = true;
   enemy4.body.setSize(16, 16, -16, 32);
-}
+ }
 
 gameOver = function(game){
   // gameOverScreen = game.add.sprite('gameOverScreen', player.body.x, player.body.y - 120);
   gameOverScreen.visible = true;
   player.kill();
+  enemy1.kill();
+  enemy2.kill();
+  enemy3.kill();
+  enemy4.kill();
   player.body.x = 25;
   player.body.y = 192;
   console.log("TEST");
   player.revive();
+  enemySpawn();
 
 }
   //update: function() {

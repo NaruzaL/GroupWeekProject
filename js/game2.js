@@ -96,16 +96,16 @@ function create() {
     player.animations.add('right', [0,1,2,3], 12, true);
     player.animations.add('turn', [4], 12, true);
 
-    lives = game.add.group();
-    game.add.text(game.world.width - 100, 10, 'Lives : ', { font: '34px Arial', fill: '#fff' });
-
-    for (var i = 0; i < 3; i++)
-    {
-        var dudes = lives.create(game.world.width - 100 + (30 * i), 60, 'hero');
-        dudes.anchor.setTo(0.5, 0.5);
-        dudes.angle = 90;
-        dudes.alpha = 0.4;
-    }
+    // lives = game.add.group();
+    // game.add.text(game.world.width - 100, 10, 'Lives : ', { font: '34px Arial', fill: '#fff' });
+    //
+    // for (var i = 0; i < 3; i++)
+    // {
+    //     var dudes = lives.create(game.world.width - 100 + (30 * i), 60, 'hero');
+    //     dudes.anchor.setTo(0.5, 0.5);
+    //     dudes.angle = 90;
+    //     dudes.alpha = 0.4;
+    // }
 
     enemy = game.add.sprite(160, 190, "marioEnemy");
     game.physics.enable(enemy, Phaser.Physics.ARCADE);

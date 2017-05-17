@@ -13,12 +13,12 @@ Our group week project is a Super Mario game remake.  This project consists of t
 |Program will display and hide section with separate content|No Input Required|"Front Page"|
 |Program will display moving "mario" themed background|No Input Required|Display "Background Scrolling"|
 |Program will display or hide program collaborators|"About Me"|Display "Collaborator Bio's"|
-|Program will send user to individual collaborator's Github account|"Guy"|Display "github.com...guyanderson" page|
+|Program will send user to individual collaborator's Github account in new tab|"Guy"|Display "github.com...guyanderson" page|
 |Program will display or hide instructions on how to play|"How to Play"|Display "Game Nav" and "Game Goals"|
 |Program will initiate game start with play button|"Play"|Display "Enter Your Username"|
 |Program will gather user name as input|Enter "GuyRocks"|Display "GuyRocks"|
 |Program will display options of level 1 or level 2|No Input Required|Display "Level 1" & "Level 2"|
-|Program will send user to Apple store or GooglePlay if desired|"GooglePlay"|Display "GooglePlay" webpage|
+|Program will send user to Apple store or GooglePlay in new tab|"GooglePlay"|Display "GooglePlay" webpage|
 |Program will send user to Level 1 Game if selected|"Level1"|Display "Level1" game page|
 |Program will send user to Level 2 Game if selected|"Level2"|Display "Level2" game page|
 

@@ -1,4 +1,4 @@
-var game = new Phaser.Game(480, 240, Phaser.CANVAS, 'mb-1', { preload: preload, create: create, update: update, render: render });
+var game = new Phaser.Game(480, 240, Phaser.CANVAS, 'mb-2', { preload: preload, create: create, update: update, render: render });
 
 var Keys = Phaser.Keyboard;
 

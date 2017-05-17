@@ -207,7 +207,6 @@ function update() {
       player.frame = 5;
     }
 
-
     if(player.body.x > 3168){
       alert("TEST");
     }

@@ -1,9 +1,9 @@
-var game = new Phaser.Game(480, 240, Phaser.CANVAS, 'mb2', { preload: preload, create: create, update: update, render: render });
+var game = new Phaser.Game(480, 240, Phaser.CANVAS, 'mb4', { preload: preload, create: create, update: update, render: render });
 
 var Keys = Phaser.Keyboard;
 
 function preload() {
-    game.load.tilemap('map', 'assets/marioMap2.json', null, Phaser.Tilemap.TILED_JSON);
+    game.load.tilemap('map', 'assets/marioMap4.json', null, Phaser.Tilemap.TILED_JSON);
     game.load.image('marioTileset', 'assets/marioTileset.png');
     game.load.image('marioEnemy', 'assets/marioEnemy.png', 16, 16, 1);
     game.load.spritesheet('hero', 'assets/marioCharacters.png', 16.6, 16.6);
@@ -21,7 +21,6 @@ function preload() {
   var enemy1;
   var enemy2;
   var enemy3;
-  var enemy4;
 
 function create() {
 
@@ -54,26 +53,13 @@ function create() {
     map.setCollisionBetween(1, 15);
 
 
-    // map.setCollisionByIndex(66); //? box
-    map.setCollisionByIndex(67); // plain square rocks
-    map.setCollisionByIndex(266);// top left pipe
-    map.setCollisionByIndex(265);//top right pip
-    map.setCollisionByIndex(298);//left pipe shaft
-    map.setCollisionByIndex(299);//right pipe shaft
-    map.setCollisionByIndex(67);// Ground
-    map.setCollisionByIndex(68);// Bricks
-    map.setCollisionByIndex(91);// Question block
-    map.setCollisionByIndex(100);// Flat brick
-    map.setCollisionByIndex(37); // Platform in 2nd level
-    map.setCollisionByIndex(25);
-    map.setCollisionByIndex(34);
+      map.setCollisionByIndex(4);
+      map.setCollisionByIndex(25);
+      map.setCollisionByIndex(168);
+      map.setCollisionByIndex(797);
 
-    // map.setCollisionByIndex(267);
-    map.setCollisionByIndex(268);
-    // map.setCollisionByIndex(300);
-    map.setCollisionByIndex(301);
 
-    player = game.add.sprite(25, 208, 'hero');
+    player = game.add.sprite(25, 82, 'hero');
     game.physics.enable(player, Phaser.Physics.ARCADE);
 
     player.anchor.setTo(.5,.5);
@@ -90,7 +76,7 @@ function create() {
 
     game.physics.arcade.gravity.y = 300;
 
-    game.world.setBounds(0, 0, 3040, 240, "map");
+    game.world.setBounds(0, 0, 2560, 240, "map");
 
     lives = game.add.group();
     // game.add.text(game.world.width - 100, 10, 'Lives : ' + lives, { font: '34px Arial', fill: '#fff' });
@@ -115,7 +101,7 @@ function update() {
   //    this.player.kill();
   //    game.state.start('Over');
   //  }
-  if(player.body.y >= 227){
+  if(player.body.y >= 216){
       //isPaused = true;
       // togglePause();
       gameOver(game);
@@ -181,32 +167,25 @@ function update() {
       }
     }
 
-    if (enemy1.body.x < 24) {
+    if (enemy1.body.x < 257) {
     enemy1.body.velocity.x = 30;
     }
-    if(enemy1.body.x > 161) {
+    if(enemy1.body.x > 586) {
     enemy1.body.velocity.x = -30;
     }
 
-    if (enemy2.body.x < 1775) {
+    if (enemy2.body.x < 1244) {
     enemy2.body.velocity.x = 30;
     }
-    if(enemy2.body.x > 1823) {
+    if(enemy2.body.x > 1372) {
     enemy2.body.velocity.x = -30;
     }
 
-    if (enemy3.body.x < 871) {
+    if (enemy3.body.x < 1968) {
     enemy3.body.velocity.x = 30;
     }
-    if(enemy3.body.x > 1161) {
+    if(enemy3.body.x > 1980) {
     enemy3.body.velocity.x = -30;
-    }
-
-    if (enemy4.body.x < 1336) {
-    enemy4.body.velocity.x = 30;
-    }
-    if(enemy4.body.x > 1461) {
-    enemy4.body.velocity.x = -30;
     }
 
     if(player.body.x > 2616){
@@ -216,12 +195,12 @@ function update() {
   }
 
 function render() {
-  
+
 
 }
 
 function enemySpawn(){
-  enemy1 = game.add.sprite(160, 190, "marioEnemy");
+  enemy1 = game.add.sprite(400, 100, "marioEnemy");
   game.physics.enable(enemy1, Phaser.Physics.ARCADE);
   enemy1.anchor.setTo(.5, .5);
   enemy1.body.bounce.y = 0;
@@ -229,7 +208,7 @@ function enemySpawn(){
   enemy1.body.collideWorldBounds = true;
   enemy1.body.setSize(16, 16, -16, 32);
 
-  enemy2 = game.add.sprite(1860, 190, "marioEnemy");
+  enemy2 = game.add.sprite(1368, 180, "marioEnemy");
   game.physics.enable(enemy2, Phaser.Physics.ARCADE);
   enemy2.anchor.setTo(.5, .5);
   enemy2.body.bounce.y = 0;
@@ -237,7 +216,7 @@ function enemySpawn(){
   enemy2.body.collideWorldBounds = true;
   enemy2.body.setSize(16, 16, -16, 32);
 
-  enemy3 = game.add.sprite(1160, 190, "marioEnemy");
+  enemy3 = game.add.sprite(1980, 200, "marioEnemy");
   game.physics.enable(enemy3, Phaser.Physics.ARCADE);
   enemy3.anchor.setTo(.5, .5);
   enemy3.body.bounce.y = 0;
@@ -245,13 +224,6 @@ function enemySpawn(){
   enemy3.body.collideWorldBounds = true;
   enemy3.body.setSize(16, 16, -16, 32);
 
-  enemy4 = game.add.sprite(1460, 190, "marioEnemy");
-  game.physics.enable(enemy4, Phaser.Physics.ARCADE);
-  enemy4.anchor.setTo(.5, .5);
-  enemy4.body.bounce.y = 0;
-  enemy4.body.velocity.x = -30;
-  enemy4.body.collideWorldBounds = true;
-  enemy4.body.setSize(16, 16, -16, 32);
  }
 
 gameOver = function(game){
@@ -263,7 +235,7 @@ gameOver = function(game){
   enemy3.kill();
   enemy4.kill();
   player.body.x = 25;
-  player.body.y = 192;
+  player.body.y = 82;
   player.revive();
   enemySpawn();
 

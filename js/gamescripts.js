@@ -18,6 +18,7 @@ function preload() {
   var player;
   var enemy;
   var scaleWindow;
+  var lives = 3;
 
 
 
@@ -132,6 +133,11 @@ function update() {
   game.physics.arcade.collide(player, layer);
   game.physics.arcade.collide(player, enemy);
 
+  if(lives <= 0){
+    game.destroy();
+    $("#ending").show();
+  }
+
   player.body.velocity.x = 0;
 
     if (cursors.left.isDown)
@@ -199,6 +205,10 @@ function update() {
       player.frame = 5;
     }
 
+    if(player.body.y > 226){
+      fallInHole();
+    }
+
     if(player.body.x > 3168){
       game.destroy();
       $("#mb1").load("game2.html");
@@ -208,6 +218,12 @@ function update() {
 function render() {
 
 
+}
+
+function fallInHole(){
+  player.body.x = 25;
+  player.body.y = 208;
+  lives -= 1;
 }
 
 function platformerFollow() {

@@ -1,12 +1,12 @@
-var game = new Phaser.Game(480, 240, Phaser.CANVAS, 'mb2', { preload: preload, create: create, update: update, render: render });
+var game = new Phaser.Game(480, 240, Phaser.CANVAS, 'mb1', { preload: preload, create: create, update: update, render: render });
 
 var Keys = Phaser.Keyboard;
 
 function preload() {
-    game.load.tilemap('map', 'assets/marioMap2.json', null, Phaser.Tilemap.TILED_JSON);
+    game.load.tilemap('map', 'assets/marioMap.json', null, Phaser.Tilemap.TILED_JSON);
     game.load.image('marioTileset', 'assets/marioTileset.png');
     game.load.image('marioEnemy', 'assets/marioEnemy.png', 16, 16, 1);
-    game.load.spritesheet('hero', 'assets/marioCharacters.png', 16.6, 16.6);
+    game.load.spritesheet('hero', 'assets/marioCharacters.png', 16.6, 16.6,);
 }
 
   var map;
@@ -16,18 +16,18 @@ function preload() {
   var jumpButton;
   var jumpTimer = 0;
   var player;
-  var lives = 3;
+  var enemy;
   var scaleWindow;
-  var enemy1;
-  var enemy2;
-  var enemy3;
-  var enemy4;
+  var lives = 3;
+
+
 
 function create() {
 
     this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.SHOW_ALL;
     this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
     this.game.scale.refresh();
+
 
     canvas_width = 720;
     canvas_height = 480;
@@ -37,9 +37,10 @@ function create() {
     if (aspect_ratio > 1) scale_ratio = canvas_height / canvas_height_max;
     else scale_ratio = canvas_width / canvas_width_max;
 
+
     game.physics.startSystem(Phaser.Physics.ARCADE);
 
-    // game.stage.backgroundColor = "#00BFFF";
+    game.stage.backgroundColor = "#00BFFF";
 
     game.time.desiredFps = 30;
 
@@ -80,28 +81,48 @@ function create() {
     player.body.bounce.y = 0;
     player.body.collideWorldBounds = true;
     player.body.setSize(8, 8, 8, 8);
+    // player.body.collides(enemyCG);
 
     player.animations.add('right', [0,1,2,3], 12, true);
     player.animations.add('turn', [4], 12, true);
 
-    enemySpawn();
+    enemy = game.add.sprite(160, 190, "marioEnemy");
+    game.physics.enable(enemy, Phaser.Physics.ARCADE);
+    enemy.anchor.setTo(.5, .5);
+    enemy.body.bounce.y = 0;
+    enemy.body.velocity.x = -30;
+    enemy.body.collideWorldBounds = true;
+    enemy.body.setSize(16, 16, -16, 32);
+
+    enemy = game.add.sprite(1860, 190, "marioEnemy");
+    game.physics.enable(enemy, Phaser.Physics.ARCADE);
+    enemy.anchor.setTo(.5, .5);
+    enemy.body.bounce.y = 0;
+    enemy.body.velocity.x = -30;
+    enemy.body.collideWorldBounds = true;
+    enemy.body.setSize(16, 16, -16, 32);
+
+    enemy = game.add.sprite(1160, 190, "marioEnemy");
+    game.physics.enable(enemy, Phaser.Physics.ARCADE);
+    enemy.anchor.setTo(.5, .5);
+    enemy.body.bounce.y = 0;
+    enemy.body.velocity.x = -30;
+    enemy.body.collideWorldBounds = true;
+    enemy.body.setSize(16, 16, -16, 32);
+
+    enemy = game.add.sprite(1460, 190, "marioEnemy");
+    game.physics.enable(enemy, Phaser.Physics.ARCADE);
+    enemy.anchor.setTo(.5, .5);
+    enemy.body.bounce.y = 0;
+    enemy.body.velocity.x = -30;
+    enemy.body.collideWorldBounds = true;
+    enemy.body.setSize(16, 16, -16, 32);
 
     game.camera.follow(player);
 
     game.physics.arcade.gravity.y = 400;
 
-    game.world.setBounds(0, 0, 3040, 240, "map");
-
-    lives = game.add.group();
-    // game.add.text(game.world.width - 100, 10, 'Lives : ' + lives, { font: '34px Arial', fill: '#fff' });
-
-    // for (var i = 0; i < 3; i++)
-    // {
-    //     var dude = lives.create(game.world.width - 100 + (30 * i), 60, 'hero');
-    //     dude.anchor.setTo(0.5, 0.5);
-    //     dude.angle = 90;
-    //     dude.alpha = 0.4;
-    // }
+    game.world.setBounds(0, 0, 3408, 240, "map");
 
     cursors = game.input.keyboard.createCursorKeys();
     jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
@@ -110,17 +131,12 @@ function create() {
 function update() {
 
   game.physics.arcade.collide(player, layer);
+  game.physics.arcade.collide(player, enemy);
 
-  //  if (game.physics.arcade.collide(this.player, this.enemy)) {
-  //    this.player.kill();
-  //    game.state.start('Over');
-  //  }
-  if(player.body.y >= 227){
-      //isPaused = true;
-      // togglePause();
-      gameOver(game);
-    }
-
+  if(lives <= 0){
+    game.destroy();
+    $("#ending").show();
+  }
 
   player.body.velocity.x = 0;
 
@@ -169,7 +185,7 @@ function update() {
     {
         player.body.velocity.y = -240;
         jumpTimer = game.time.now + 750;
-
+        // player.frame = 5;
     }
 
     if(!player.body.onFloor()){
@@ -181,37 +197,21 @@ function update() {
       }
     }
 
-    if (enemy1.body.x < 24) {
-    enemy1.body.velocity.x = 30;
-    }
-    if(enemy1.body.x > 161) {
-    enemy1.body.velocity.x = -30;
+      if(player.body.y < 0){
+        playerDeath();
     }
 
-    if (enemy2.body.x < 1775) {
-    enemy2.body.velocity.x = 30;
-    }
-    if(enemy2.body.x > 1823) {
-    enemy2.body.velocity.x = -30;
+    if(!player.body.onFloor()){
+      player.frame = 5;
     }
 
-    if (enemy3.body.x < 871) {
-    enemy3.body.velocity.x = 30;
-    }
-    if(enemy3.body.x > 1161) {
-    enemy3.body.velocity.x = -30;
+    if(player.body.y > 226){
+      fallInHole();
     }
 
-    if (enemy4.body.x < 1336) {
-    enemy4.body.velocity.x = 30;
-    }
-    if(enemy4.body.x > 1461) {
-    enemy4.body.velocity.x = -30;
-    }
-
-    if(player.body.x > 2616){
+    if(player.body.x > 3168){
       game.destroy();
-      $("#mb1").load("game3.html");
+      $("#mb1").load("game2.html");
     }
 
     if(player.body.y > 226){
@@ -220,6 +220,10 @@ function update() {
   }
 
 function render() {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 220b9e9ee5e30351cff43c08260faf7b968d0be8
 
 }
 
@@ -227,6 +231,7 @@ function fallInHole(){
   player.body.x = 25;
   player.body.y = 208;
   lives -= 1;
+<<<<<<< HEAD
   enemy.kill();
   enemySpawn();
 }
@@ -269,18 +274,20 @@ gameOver = function(game){
   // gameOverScreen = game.add.sprite('gameOverScreen', player.body.x, player.body.y - 120);
   gameOverScreen.visible = true;
   player.kill();
+=======
+>>>>>>> 220b9e9ee5e30351cff43c08260faf7b968d0be8
   enemy1.kill();
   enemy2.kill();
   enemy3.kill();
   enemy4.kill();
+<<<<<<< HEAD
   player.body.x = 25;
   player.body.y = 192;
   player.revive();
+=======
+>>>>>>> 220b9e9ee5e30351cff43c08260faf7b968d0be8
   enemySpawn();
-
 }
-  //update: function() {
-  // if (this.spacebar.isDown){ game.state.start('mb-1');  }};
 
 function platformerFollow() {
     game.camera.follow(player, Phaser.Camera.FOLLOW_PLATFORMER);

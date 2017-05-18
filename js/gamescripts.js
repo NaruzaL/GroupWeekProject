@@ -16,13 +16,13 @@ function preload() {
   var jumpButton;
   var jumpTimer = 0;
   var player;
-  var scaleWindow;
   var enemy;
+  var scaleWindow;
+  var lives = 3;
+
 
 
 function create() {
-
-
 
     this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.SHOW_ALL;
     this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
@@ -81,9 +81,11 @@ function create() {
     player.body.bounce.y = 0;
     player.body.collideWorldBounds = true;
     player.body.setSize(8, 8, 8, 8);
+    // player.body.collides(enemyCG);
 
     player.animations.add('right', [0,1,2,3], 12, true);
     player.animations.add('turn', [4], 12, true);
+
 
 
     game.camera.follow(player);
@@ -99,6 +101,12 @@ function create() {
 function update() {
 
   game.physics.arcade.collide(player, layer);
+  game.physics.arcade.collide(player, enemy);
+
+  if(lives <= 0){
+    game.destroy();
+    $("#ending").show();
+  }
 
   player.body.velocity.x = 0;
 
@@ -167,6 +175,10 @@ function update() {
       player.frame = 5;
     }
 
+    if(player.body.y > 226){
+      fallInHole();
+    }
+
     if(player.body.x > 3168){
       game.destroy();
       $("#mb1").load("game2.html");
@@ -216,6 +228,14 @@ function enemySpawn(){
   enemy.body.collideWorldBounds = true;
   enemy.body.setSize(16, 16, -16, 32);
 
+}
+
+function fallInHole(){
+  player.body.x = 25;
+  player.body.y = 208;
+  lives -= 1;
+  enemy.kill();
+  enemySpawn();
 }
 
 function platformerFollow() {

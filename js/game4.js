@@ -153,7 +153,7 @@ function update() {
 
     if (jumpButton.isDown && game.time.now > jumpTimer && player.body.onFloor())
     {
-        player.body.velocity.y = -200;
+        player.body.velocity.y = -240;
         jumpTimer = game.time.now + 750;
 
     }
@@ -188,10 +188,6 @@ function update() {
     enemy3.body.velocity.x = -30;
     }
 
-    if(player.body.x > 2616){
-      game.destroy();
-      $("#mb1").load("game3.html");
-    }
   }
 
 function render() {

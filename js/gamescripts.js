@@ -187,10 +187,37 @@ function update() {
     if(player.body.y > 226){
       fallInHole();
     }
+
+    if (enemy1.body.x < 50) {
+    enemy1.body.velocity.x = 30;
+    }
+    if(enemy1.body.x > 160) {
+    enemy1.body.velocity.x = -30;
+    }
+
+    if (enemy2.body.x < 915) {
+    enemy2.body.velocity.x = 30;
+    }
+    if(enemy2.body.x > 1070) {
+    enemy2.body.velocity.x = -30;
+    }
+
+    if (enemy3.body.x < 1424) {
+    enemy3.body.velocity.x = 30;
+    }
+    if(enemy3.body.x > 1674) {
+    enemy3.body.velocity.x = -30;
+    }
+
+    if (enemy4.body.x < 2640) {
+    enemy4.body.velocity.x = 30;
+    }
+    if(enemy4.body.x > 2850) {
+    enemy4.body.velocity.x = -30;
+    }
   }
 
 function render() {
-game.debug.bodyInfo(player, 16, 16);
 
 }
 
@@ -204,7 +231,7 @@ function enemySpawn(){
   enemy1.body.collideWorldBounds = true;
   enemy1.body.setSize(16, 16, -16, 32);
 
-  enemy2 = game.add.sprite(1860, 190, "marioEnemy");
+  enemy2 = game.add.sprite(1060, 190, "marioEnemy");
   game.physics.enable(enemy2, Phaser.Physics.ARCADE);
   enemy2.anchor.setTo(.5, .5);
   enemy2.body.bounce.y = 0;
@@ -212,7 +239,7 @@ function enemySpawn(){
   enemy2.body.collideWorldBounds = true;
   enemy2.body.setSize(16, 16, -16, 32);
 
-  enemy3 = game.add.sprite(1160, 190, "marioEnemy");
+  enemy3 = game.add.sprite(1670, 190, "marioEnemy");
   game.physics.enable(enemy3, Phaser.Physics.ARCADE);
   enemy3.anchor.setTo(.5, .5);
   enemy3.body.bounce.y = 0;
@@ -220,7 +247,7 @@ function enemySpawn(){
   enemy3.body.collideWorldBounds = true;
   enemy3.body.setSize(16, 16, -16, 32);
 
-  enemy4 = game.add.sprite(1460, 190, "marioEnemy");
+  enemy4 = game.add.sprite(2840, 190, "marioEnemy");
   game.physics.enable(enemy4, Phaser.Physics.ARCADE);
   enemy4.anchor.setTo(.5, .5);
   enemy4.body.bounce.y = 0;

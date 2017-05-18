@@ -38,8 +38,6 @@ function create() {
 
     game.physics.startSystem(Phaser.Physics.ARCADE);
 
-    // game.stage.backgroundColor = "#00BFFF";
-
     game.time.desiredFps = 30;
 
     map = game.add.tilemap('map');
@@ -51,13 +49,10 @@ function create() {
     layer.resizeWorld();
 
     map.setCollisionBetween(1, 15);
-
-
-      map.setCollisionByIndex(4);
-      map.setCollisionByIndex(25);
-      map.setCollisionByIndex(168);
-      map.setCollisionByIndex(797);
-
+    map.setCollisionByIndex(4);
+    map.setCollisionByIndex(25);
+    map.setCollisionByIndex(168);
+    map.setCollisionByIndex(797);
 
     player = game.add.sprite(25, 82, 'hero');
     game.physics.enable(player, Phaser.Physics.ARCADE);
@@ -78,8 +73,6 @@ function create() {
 
     game.world.setBounds(0, 0, 2560, 240, "map");
 
-    lives = game.add.group();
-
     cursors = game.input.keyboard.createCursorKeys();
     jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 }
@@ -90,7 +83,6 @@ function update() {
 
   if(lives <= 0){
     game.destroy();
-    // $("#ending").show();
   }
 
   player.body.velocity.x = 0;
@@ -184,7 +176,6 @@ function update() {
   }
 
 function render() {
-
 
 }
 

@@ -85,41 +85,10 @@ function create() {
     player.animations.add('right', [0,1,2,3], 12, true);
     player.animations.add('turn', [4], 12, true);
 
-    enemy = game.add.sprite(160, 190, "marioEnemy");
-    game.physics.enable(enemy, Phaser.Physics.ARCADE);
-    enemy.anchor.setTo(.5, .5);
-    enemy.body.bounce.y = 0;
-    enemy.body.velocity.x = -30;
-    enemy.body.collideWorldBounds = true;
-    enemy.body.setSize(16, 16, -16, 32);
-
-    enemy = game.add.sprite(1860, 190, "marioEnemy");
-    game.physics.enable(enemy, Phaser.Physics.ARCADE);
-    enemy.anchor.setTo(.5, .5);
-    enemy.body.bounce.y = 0;
-    enemy.body.velocity.x = -30;
-    enemy.body.collideWorldBounds = true;
-    enemy.body.setSize(16, 16, -16, 32);
-
-    enemy = game.add.sprite(1160, 190, "marioEnemy");
-    game.physics.enable(enemy, Phaser.Physics.ARCADE);
-    enemy.anchor.setTo(.5, .5);
-    enemy.body.bounce.y = 0;
-    enemy.body.velocity.x = -30;
-    enemy.body.collideWorldBounds = true;
-    enemy.body.setSize(16, 16, -16, 32);
-
-    enemy = game.add.sprite(1460, 190, "marioEnemy");
-    game.physics.enable(enemy, Phaser.Physics.ARCADE);
-    enemy.anchor.setTo(.5, .5);
-    enemy.body.bounce.y = 0;
-    enemy.body.velocity.x = -30;
-    enemy.body.collideWorldBounds = true;
-    enemy.body.setSize(16, 16, -16, 32);
 
     game.camera.follow(player);
 
-    game.physics.arcade.gravity.y = 300;
+    game.physics.arcade.gravity.y = 400;
 
     game.world.setBounds(0, 0, 3408, 240, "map");
 
@@ -176,7 +145,7 @@ function update() {
 
     if (jumpButton.isDown && game.time.now > jumpTimer && player.body.onFloor())
     {
-        player.body.velocity.y = -250;
+        player.body.velocity.y = -200;
         jumpTimer = game.time.now + 750;
         // player.frame = 5;
     }
@@ -206,6 +175,42 @@ function update() {
 
 function render() {
 
+
+}
+
+function enemySpawn(){
+
+  enemy = game.add.sprite(160, 190, "marioEnemy");
+  game.physics.enable(enemy, Phaser.Physics.ARCADE);
+  enemy.anchor.setTo(.5, .5);
+  enemy.body.bounce.y = 0;
+  enemy.body.velocity.x = -30;
+  enemy.body.collideWorldBounds = true;
+  enemy.body.setSize(16, 16, -16, 32);
+
+  enemy = game.add.sprite(1860, 190, "marioEnemy");
+  game.physics.enable(enemy, Phaser.Physics.ARCADE);
+  enemy.anchor.setTo(.5, .5);
+  enemy.body.bounce.y = 0;
+  enemy.body.velocity.x = -30;
+  enemy.body.collideWorldBounds = true;
+  enemy.body.setSize(16, 16, -16, 32);
+
+  enemy = game.add.sprite(1160, 190, "marioEnemy");
+  game.physics.enable(enemy, Phaser.Physics.ARCADE);
+  enemy.anchor.setTo(.5, .5);
+  enemy.body.bounce.y = 0;
+  enemy.body.velocity.x = -30;
+  enemy.body.collideWorldBounds = true;
+  enemy.body.setSize(16, 16, -16, 32);
+
+  enemy = game.add.sprite(1460, 190, "marioEnemy");
+  game.physics.enable(enemy, Phaser.Physics.ARCADE);
+  enemy.anchor.setTo(.5, .5);
+  enemy.body.bounce.y = 0;
+  enemy.body.velocity.x = -30;
+  enemy.body.collideWorldBounds = true;
+  enemy.body.setSize(16, 16, -16, 32);
 
 }
 

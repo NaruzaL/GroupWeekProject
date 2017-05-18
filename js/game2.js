@@ -88,7 +88,7 @@ function create() {
 
     game.camera.follow(player);
 
-    game.physics.arcade.gravity.y = 300;
+    game.physics.arcade.gravity.y = 400;
 
     game.world.setBounds(0, 0, 3040, 240, "map");
 
@@ -167,7 +167,7 @@ function update() {
 
     if (jumpButton.isDown && game.time.now > jumpTimer && player.body.onFloor())
     {
-        player.body.velocity.y = -250;
+        player.body.velocity.y = -200;
         jumpTimer = game.time.now + 750;
 
     }
@@ -216,7 +216,7 @@ function update() {
   }
 
 function render() {
-  
+
 
 }
 

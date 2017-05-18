@@ -53,18 +53,12 @@ function create() {
 
     map.setCollisionBetween(1, 15);
 
-
-    // map.setCollisionByIndex(66); //? box
-    map.setCollisionByIndex(67); // plain square rocks
-
     map.setCollisionByIndex(67);// Ground
     map.setCollisionByIndex(68);// Bricks
     map.setCollisionByIndex(91);// Question block
     map.setCollisionByIndex(100);// Flat brick
     map.setCollisionByIndex(37); // Platform in 2nd level
     map.setCollisionByIndex(25);
-    map.setCollisionByIndex(34);
-
     map.setCollisionByIndex(270);
     map.setCollisionByIndex(271);
     map.setCollisionByIndex(272);
@@ -94,8 +88,6 @@ function create() {
 
     game.world.setBounds(0, 0, 2720, 240, "map");
 
-    lives = game.add.group();
-
     cursors = game.input.keyboard.createCursorKeys();
     jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 }
@@ -103,6 +95,12 @@ function create() {
 function update() {
 
   game.physics.arcade.collide(player, layer);
+
+  console.log(lives);
+
+  if(lives <= 0){
+    game.destroy();
+  }
 
   player.body.velocity.x = 0;
 
@@ -202,13 +200,11 @@ function update() {
   }
 
 function render() {
-
-
 }
 
 function fallInHole(){
-  player.body.x = 100;
-  player.body.y = 208;
+  player.body.x = 120;
+  player.body.y = 200;
   lives -= 1;
   enemy1.kill();
   enemy2.kill();

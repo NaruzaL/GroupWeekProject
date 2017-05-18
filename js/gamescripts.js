@@ -37,7 +37,6 @@ function create() {
     if (aspect_ratio > 1) scale_ratio = canvas_height / canvas_height_max;
     else scale_ratio = canvas_width / canvas_width_max;
 
-
     game.physics.startSystem(Phaser.Physics.ARCADE);
 
     game.stage.backgroundColor = "#00BFFF";
@@ -54,9 +53,6 @@ function create() {
 
     map.setCollisionBetween(1, 15);
 
-
-    // map.setCollisionByIndex(66); //? box
-    map.setCollisionByIndex(67); // plain square rocks
     map.setCollisionByIndex(266);// top left pipe
     map.setCollisionByIndex(265);//top right pip
     map.setCollisionByIndex(298);//left pipe shaft
@@ -68,7 +64,6 @@ function create() {
     map.setCollisionByIndex(37); // Platform in 2nd level
     map.setCollisionByIndex(25);
     map.setCollisionByIndex(34);
-
     map.setCollisionByIndex(267);
     map.setCollisionByIndex(268);
     map.setCollisionByIndex(300);
@@ -81,7 +76,6 @@ function create() {
     player.body.bounce.y = 0;
     player.body.collideWorldBounds = true;
     player.body.setSize(8, 8, 8, 8);
-    // player.body.collides(enemyCG);
 
     player.animations.add('right', [0,1,2,3], 12, true);
     player.animations.add('turn', [4], 12, true);
@@ -104,7 +98,6 @@ function update() {
 
   if(lives <= 0){
     game.destroy();
-    $("#ending").show();
   }
 
   player.body.velocity.x = 0;
@@ -154,7 +147,6 @@ function update() {
     {
         player.body.velocity.y = -240;
         jumpTimer = game.time.now + 750;
-        // player.frame = 5;
     }
 
     if(!player.body.onFloor()){
@@ -166,16 +158,8 @@ function update() {
       }
     }
 
-      if(player.body.y < 0){
-        playerDeath();
-    }
-
     if(!player.body.onFloor()){
       player.frame = 5;
-    }
-
-    if(player.body.y > 226){
-      fallInHole();
     }
 
     if(player.body.x > 3168){
@@ -184,6 +168,7 @@ function update() {
     }
 
     if(player.body.y > 226){
+      player.body.velocity.x = 0;
       fallInHole();
     }
 

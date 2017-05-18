@@ -1,4 +1,4 @@
-var game = new Phaser.Game(480, 240, Phaser.CANVAS, 'mb-2', { preload: preload, create: create, update: update, render: render });
+var game = new Phaser.Game(480, 240, Phaser.CANVAS, 'mb2', { preload: preload, create: create, update: update, render: render });
 
 var Keys = Phaser.Keyboard;
 
@@ -207,6 +207,11 @@ function update() {
     }
     if(enemy4.body.x > 1461) {
     enemy4.body.velocity.x = -30;
+    }
+
+    if(player.body.x > 2616){
+      game.destroy();
+      $("#mb1").load("game3.html");
     }
   }
 

@@ -187,7 +187,9 @@ function fallInHole(){
   player.body.x = 25;
   player.body.y = 208;
   lives -= 1;
-  enemy.kill();
+  enemy1.kill();
+  enemy2.kill();
+  enemy3.kill();
   enemySpawn();
 }
 

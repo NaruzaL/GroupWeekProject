@@ -90,7 +90,7 @@ function create() {
 
     game.camera.follow(player);
 
-    game.physics.arcade.gravity.y = 300;
+    game.physics.arcade.gravity.y = 400;
 
     game.world.setBounds(0, 0, 2720, 240, "map");
 
@@ -112,17 +112,6 @@ function create() {
 function update() {
 
   game.physics.arcade.collide(player, layer);
-
-  //  if (game.physics.arcade.collide(this.player, this.enemy)) {
-  //    this.player.kill();
-  //    game.state.start('Over');
-  //  }
-  if(player.body.y >= 227){
-      //isPaused = true;
-      // togglePause();
-      gameOver(game);
-    }
-
 
   player.body.velocity.x = 0;
 
@@ -169,7 +158,7 @@ function update() {
 
     if (jumpButton.isDown && game.time.now > jumpTimer && player.body.onFloor())
     {
-        player.body.velocity.y = -250;
+        player.body.velocity.y = -240;
         jumpTimer = game.time.now + 750;
 
     }
@@ -215,11 +204,26 @@ function update() {
       game.destroy();
       $("#mb3").load("game4.html");
     }
+
+    if(player.body.y > 226){
+      fallInHole();
+    }
   }
 
 function render() {
+game.debug.bodyInfo(player, 16, 16);
 
+}
 
+function fallInHole(){
+  player.body.x = 100;
+  player.body.y = 208;
+  lives -= 1;
+  enemy1.kill();
+  enemy2.kill();
+  enemy3.kill();
+  enemy4.kill();
+  enemySpawn();
 }
 
 function enemySpawn(){
@@ -255,22 +259,6 @@ function enemySpawn(){
   enemy4.body.collideWorldBounds = true;
   enemy4.body.setSize(16, 16, -16, 32);
  }
-
-gameOver = function(game){
-  // gameOverScreen = game.add.sprite('gameOverScreen', player.body.x, player.body.y - 120);
-  gameOverScreen.visible = true;
-  player.kill();
-  enemy1.kill();
-  enemy2.kill();
-  enemy3.kill();
-  enemy4.kill();
-  player.body.x = 25;
-  player.body.y = 192;
-  player.revive();
-  enemySpawn();
-
-}
-
 
 function platformerFollow() {
     game.camera.follow(player, Phaser.Camera.FOLLOW_PLATFORMER);

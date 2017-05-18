@@ -101,7 +101,6 @@ function create() {
 function update() {
 
   game.physics.arcade.collide(player, layer);
-  game.physics.arcade.collide(player, enemy);
 
   if(lives <= 0){
     game.destroy();

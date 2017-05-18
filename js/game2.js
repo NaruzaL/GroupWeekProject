@@ -187,6 +187,34 @@ function update() {
     if(player.body.y > 226){
       fallInHole();
     }
+
+    if (enemy1.body.x < 24) {
+    enemy1.body.velocity.x = 30;
+    }
+    if(enemy1.body.x > 161) {
+    enemy1.body.velocity.x = -30;
+    }
+
+    if (enemy2.body.x < 1775) {
+    enemy2.body.velocity.x = 30;
+    }
+    if(enemy2.body.x > 1823) {
+    enemy2.body.velocity.x = -30;
+    }
+
+    if (enemy3.body.x < 871) {
+    enemy3.body.velocity.x = 30;
+    }
+    if(enemy3.body.x > 1161) {
+    enemy3.body.velocity.x = -30;
+    }
+
+    if (enemy4.body.x < 1336) {
+    enemy4.body.velocity.x = 30;
+    }
+    if(enemy4.body.x > 1461) {
+    enemy4.body.velocity.x = -30;
+    }
   }
 
 function render() {

@@ -211,7 +211,7 @@ function update() {
   }
 
 function render() {
-
+game.debug.bodyInfo(player, 16, 16);
 
 }
 

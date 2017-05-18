@@ -16,13 +16,12 @@ function preload() {
   var jumpButton;
   var jumpTimer = 0;
   var player;
-  var scaleWindow;
   var enemy;
+  var scaleWindow;
+
 
 
 function create() {
-
-
 
     this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.SHOW_ALL;
     this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
@@ -81,6 +80,7 @@ function create() {
     player.body.bounce.y = 0;
     player.body.collideWorldBounds = true;
     player.body.setSize(8, 8, 8, 8);
+    // player.body.collides(enemyCG);
 
     player.animations.add('right', [0,1,2,3], 12, true);
     player.animations.add('turn', [4], 12, true);
@@ -130,6 +130,7 @@ function create() {
 function update() {
 
   game.physics.arcade.collide(player, layer);
+  game.physics.arcade.collide(player, enemy);
 
   player.body.velocity.x = 0;
 

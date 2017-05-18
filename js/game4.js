@@ -21,7 +21,6 @@ function preload() {
   var enemy1;
   var enemy2;
   var enemy3;
-  var enemy4;
 
 function create() {
 
@@ -168,32 +167,25 @@ function update() {
       }
     }
 
-    if (enemy1.body.x < 24) {
+    if (enemy1.body.x < 257) {
     enemy1.body.velocity.x = 30;
     }
-    if(enemy1.body.x > 161) {
+    if(enemy1.body.x > 586) {
     enemy1.body.velocity.x = -30;
     }
 
-    if (enemy2.body.x < 1775) {
+    if (enemy2.body.x < 1244) {
     enemy2.body.velocity.x = 30;
     }
-    if(enemy2.body.x > 1823) {
+    if(enemy2.body.x > 1372) {
     enemy2.body.velocity.x = -30;
     }
 
-    if (enemy3.body.x < 871) {
+    if (enemy3.body.x < 1968) {
     enemy3.body.velocity.x = 30;
     }
-    if(enemy3.body.x > 1161) {
+    if(enemy3.body.x > 1980) {
     enemy3.body.velocity.x = -30;
-    }
-
-    if (enemy4.body.x < 1336) {
-    enemy4.body.velocity.x = 30;
-    }
-    if(enemy4.body.x > 1461) {
-    enemy4.body.velocity.x = -30;
     }
 
     if(player.body.x > 2616){
@@ -208,7 +200,7 @@ function render() {
 }
 
 function enemySpawn(){
-  enemy1 = game.add.sprite(160, 190, "marioEnemy");
+  enemy1 = game.add.sprite(400, 100, "marioEnemy");
   game.physics.enable(enemy1, Phaser.Physics.ARCADE);
   enemy1.anchor.setTo(.5, .5);
   enemy1.body.bounce.y = 0;
@@ -216,7 +208,7 @@ function enemySpawn(){
   enemy1.body.collideWorldBounds = true;
   enemy1.body.setSize(16, 16, -16, 32);
 
-  enemy2 = game.add.sprite(1860, 190, "marioEnemy");
+  enemy2 = game.add.sprite(1368, 180, "marioEnemy");
   game.physics.enable(enemy2, Phaser.Physics.ARCADE);
   enemy2.anchor.setTo(.5, .5);
   enemy2.body.bounce.y = 0;
@@ -224,7 +216,7 @@ function enemySpawn(){
   enemy2.body.collideWorldBounds = true;
   enemy2.body.setSize(16, 16, -16, 32);
 
-  enemy3 = game.add.sprite(1160, 190, "marioEnemy");
+  enemy3 = game.add.sprite(1980, 200, "marioEnemy");
   game.physics.enable(enemy3, Phaser.Physics.ARCADE);
   enemy3.anchor.setTo(.5, .5);
   enemy3.body.bounce.y = 0;
@@ -232,13 +224,6 @@ function enemySpawn(){
   enemy3.body.collideWorldBounds = true;
   enemy3.body.setSize(16, 16, -16, 32);
 
-  enemy4 = game.add.sprite(1460, 190, "marioEnemy");
-  game.physics.enable(enemy4, Phaser.Physics.ARCADE);
-  enemy4.anchor.setTo(.5, .5);
-  enemy4.body.bounce.y = 0;
-  enemy4.body.velocity.x = -30;
-  enemy4.body.collideWorldBounds = true;
-  enemy4.body.setSize(16, 16, -16, 32);
  }
 
 gameOver = function(game){

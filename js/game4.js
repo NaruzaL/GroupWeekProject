@@ -79,15 +79,6 @@ function create() {
     game.world.setBounds(0, 0, 2560, 240, "map");
 
     lives = game.add.group();
-    // game.add.text(game.world.width - 100, 10, 'Lives : ' + lives, { font: '34px Arial', fill: '#fff' });
-
-    // for (var i = 0; i < 3; i++)
-    // {
-    //     var dude = lives.create(game.world.width - 100 + (30 * i), 60, 'hero');
-    //     dude.anchor.setTo(0.5, 0.5);
-    //     dude.angle = 90;
-    //     dude.alpha = 0.4;
-    // }
 
     cursors = game.input.keyboard.createCursorKeys();
     jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
@@ -96,17 +87,6 @@ function create() {
 function update() {
 
   game.physics.arcade.collide(player, layer);
-
-  //  if (game.physics.arcade.collide(this.player, this.enemy)) {
-  //    this.player.kill();
-  //    game.state.start('Over');
-  //  }
-  if(player.body.y >= 216){
-      //isPaused = true;
-      // togglePause();
-      gameOver(game);
-    }
-
 
   player.body.velocity.x = 0;
 
@@ -188,11 +168,27 @@ function update() {
     enemy3.body.velocity.x = -30;
     }
 
+    if(player.body.x > 2616){
+      game.destroy();
+      $("#mb1").load("game3.html");
+    }
+
+    if(player.body.y > 226){
+      fallInHole();
+    }
   }
 
 function render() {
 
 
+}
+
+function fallInHole(){
+  player.body.x = 25;
+  player.body.y = 208;
+  lives -= 1;
+  enemy.kill();
+  enemySpawn();
 }
 
 function enemySpawn(){
@@ -221,23 +217,6 @@ function enemySpawn(){
   enemy3.body.setSize(16, 16, -16, 32);
 
  }
-
-gameOver = function(game){
-  // gameOverScreen = game.add.sprite('gameOverScreen', player.body.x, player.body.y - 120);
-  gameOverScreen.visible = true;
-  player.kill();
-  enemy1.kill();
-  enemy2.kill();
-  enemy3.kill();
-  enemy4.kill();
-  player.body.x = 25;
-  player.body.y = 82;
-  player.revive();
-  enemySpawn();
-
-}
-  //update: function() {
-  // if (this.spacebar.isDown){ game.state.start('mb-1');  }};
 
 function platformerFollow() {
     game.camera.follow(player, Phaser.Camera.FOLLOW_PLATFORMER);

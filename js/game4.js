@@ -88,6 +88,11 @@ function update() {
 
   game.physics.arcade.collide(player, layer);
 
+  if(lives <= 0){
+    game.destroy();
+    // $("#ending").show();
+  }
+
   player.body.velocity.x = 0;
 
     if (cursors.left.isDown)
@@ -185,7 +190,7 @@ function render() {
 
 function fallInHole(){
   player.body.x = 25;
-  player.body.y = 208;
+  player.body.y = 86;
   lives -= 1;
   enemy1.kill();
   enemy2.kill();

@@ -166,18 +166,10 @@ function update() {
       }
     }
 
-      if(player.body.y < 0){
-        playerDeath();
-    }
-
     if(!player.body.onFloor()){
       player.frame = 5;
     }
-
-    if(player.body.y > 226){
-      fallInHole();
-    }
-
+    
     if(player.body.x > 2616){
       game.destroy();
       $("#mb1").load("game3.html");

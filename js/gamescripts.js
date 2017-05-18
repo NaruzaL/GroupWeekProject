@@ -104,7 +104,6 @@ function update() {
 
   if(lives <= 0){
     game.destroy();
-    $("#ending").show();
   }
 
   player.body.velocity.x = 0;
@@ -166,16 +165,8 @@ function update() {
       }
     }
 
-      if(player.body.y < 0){
-        playerDeath();
-    }
-
     if(!player.body.onFloor()){
       player.frame = 5;
-    }
-
-    if(player.body.y > 226){
-      fallInHole();
     }
 
     if(player.body.x > 3168){
@@ -184,6 +175,7 @@ function update() {
     }
 
     if(player.body.y > 226){
+      player.body.velocity.x = 0;
       fallInHole();
     }
 

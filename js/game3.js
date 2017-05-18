@@ -179,24 +179,24 @@ function update() {
     enemy1.body.velocity.x = -30;
     }
 
-    if (enemy2.body.x < 1042) {
+    if (enemy2.body.x < 1030) {
     enemy2.body.velocity.x = 30;
     }
-    if(enemy2.body.x > 1083) {
+    if(enemy2.body.x > 1090) {
     enemy2.body.velocity.x = -30;
     }
 
     if (enemy3.body.x < 1630) {
     enemy3.body.velocity.x = 30;
     }
-    if(enemy3.body.x > 1676) {
+    if(enemy3.body.x > 1668) {
     enemy3.body.velocity.x = -30;
     }
 
     if (enemy4.body.x < 1933) {
     enemy4.body.velocity.x = 30;
     }
-    if(enemy4.body.x > 1982) {
+    if(enemy4.body.x > 1968) {
     enemy4.body.velocity.x = -30;
     }
 
@@ -211,7 +211,7 @@ function update() {
   }
 
 function render() {
-game.debug.bodyInfo(player, 16, 16);
+
 
 }
 
@@ -233,7 +233,7 @@ function enemySpawn(){
   enemy1.body.bounce.y = 0;
   enemy1.body.velocity.x = -30;
   enemy1.body.collideWorldBounds = true;
-  enemy1.body.setSize(16, 16, -16, 32);
+  enemy1.body.setSize(16, 16, 0, 48);
 
   enemy2 = game.add.sprite(1080, 100, "marioEnemy");
   game.physics.enable(enemy2, Phaser.Physics.ARCADE);
@@ -241,7 +241,7 @@ function enemySpawn(){
   enemy2.body.bounce.y = 0;
   enemy2.body.velocity.x = -30;
   enemy2.body.collideWorldBounds = true;
-  enemy2.body.setSize(16, 16, -16, 32);
+  enemy2.body.setSize(16, 16, 0, 32);
 
   enemy3 = game.add.sprite(1670, 100, "marioEnemy");
   game.physics.enable(enemy3, Phaser.Physics.ARCADE);
@@ -249,7 +249,7 @@ function enemySpawn(){
   enemy3.body.bounce.y = 0;
   enemy3.body.velocity.x = -30;
   enemy3.body.collideWorldBounds = true;
-  enemy3.body.setSize(16, 16, -16, 32);
+  enemy3.body.setSize(16, 16, 0, 64);
 
   enemy4 = game.add.sprite(1970, 190, "marioEnemy");
   game.physics.enable(enemy4, Phaser.Physics.ARCADE);
@@ -257,7 +257,7 @@ function enemySpawn(){
   enemy4.body.bounce.y = 0;
   enemy4.body.velocity.x = -30;
   enemy4.body.collideWorldBounds = true;
-  enemy4.body.setSize(16, 16, -16, 32);
+  enemy4.body.setSize(16, 16, 0, 96);
  }
 
 function platformerFollow() {

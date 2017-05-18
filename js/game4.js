@@ -238,23 +238,6 @@ function enemySpawn(){
 
  }
 
-gameOver = function(game){
-  // gameOverScreen = game.add.sprite('gameOverScreen', player.body.x, player.body.y - 120);
-  gameOverScreen.visible = true;
-  player.kill();
-  enemy1.kill();
-  enemy2.kill();
-  enemy3.kill();
-  enemy4.kill();
-  player.body.x = 25;
-  player.body.y = 82;
-  player.revive();
-  enemySpawn();
-
-}
-  //update: function() {
-  // if (this.spacebar.isDown){ game.state.start('mb-1');  }};
-
 function platformerFollow() {
     game.camera.follow(player, Phaser.Camera.FOLLOW_PLATFORMER);
     style = 'STYLE_PLATFORMER';

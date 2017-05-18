@@ -268,22 +268,6 @@ function enemySpawn(){
   enemy4.body.setSize(16, 16, -16, 32);
  }
 
-gameOver = function(game){
-  // gameOverScreen = game.add.sprite('gameOverScreen', player.body.x, player.body.y - 120);
-  gameOverScreen.visible = true;
-  player.kill();
-  enemy1.kill();
-  enemy2.kill();
-  enemy3.kill();
-  enemy4.kill();
-  player.body.x = 25;
-  player.body.y = 192;
-  player.revive();
-  enemySpawn();
-
-}
-
-
 function platformerFollow() {
     game.camera.follow(player, Phaser.Camera.FOLLOW_PLATFORMER);
     style = 'STYLE_PLATFORMER';

@@ -86,37 +86,7 @@ function create() {
     player.animations.add('right', [0,1,2,3], 12, true);
     player.animations.add('turn', [4], 12, true);
 
-    enemy = game.add.sprite(160, 190, "marioEnemy");
-    game.physics.enable(enemy, Phaser.Physics.ARCADE);
-    enemy.anchor.setTo(.5, .5);
-    enemy.body.bounce.y = 0;
-    enemy.body.velocity.x = -30;
-    enemy.body.collideWorldBounds = true;
-    enemy.body.setSize(16, 16, -16, 32);
-
-    enemy = game.add.sprite(1860, 190, "marioEnemy");
-    game.physics.enable(enemy, Phaser.Physics.ARCADE);
-    enemy.anchor.setTo(.5, .5);
-    enemy.body.bounce.y = 0;
-    enemy.body.velocity.x = -30;
-    enemy.body.collideWorldBounds = true;
-    enemy.body.setSize(16, 16, -16, 32);
-
-    enemy = game.add.sprite(1160, 190, "marioEnemy");
-    game.physics.enable(enemy, Phaser.Physics.ARCADE);
-    enemy.anchor.setTo(.5, .5);
-    enemy.body.bounce.y = 0;
-    enemy.body.velocity.x = -30;
-    enemy.body.collideWorldBounds = true;
-    enemy.body.setSize(16, 16, -16, 32);
-
-    enemy = game.add.sprite(1460, 190, "marioEnemy");
-    game.physics.enable(enemy, Phaser.Physics.ARCADE);
-    enemy.anchor.setTo(.5, .5);
-    enemy.body.bounce.y = 0;
-    enemy.body.velocity.x = -30;
-    enemy.body.collideWorldBounds = true;
-    enemy.body.setSize(16, 16, -16, 32);
+    enemySpawn();
 
     game.camera.follow(player);
 
@@ -220,10 +190,7 @@ function update() {
   }
 
 function render() {
-<<<<<<< HEAD
-=======
 
->>>>>>> 220b9e9ee5e30351cff43c08260faf7b968d0be8
 
 }
 
@@ -231,8 +198,10 @@ function fallInHole(){
   player.body.x = 25;
   player.body.y = 208;
   lives -= 1;
-<<<<<<< HEAD
-  enemy.kill();
+  enemy1.kill();
+  enemy2.kill();
+  enemy3.kill();
+  enemy4.kill();
   enemySpawn();
 }
 
@@ -269,25 +238,6 @@ function enemySpawn(){
   enemy4.body.collideWorldBounds = true;
   enemy4.body.setSize(16, 16, -16, 32);
  }
-
-gameOver = function(game){
-  // gameOverScreen = game.add.sprite('gameOverScreen', player.body.x, player.body.y - 120);
-  gameOverScreen.visible = true;
-  player.kill();
-=======
->>>>>>> 220b9e9ee5e30351cff43c08260faf7b968d0be8
-  enemy1.kill();
-  enemy2.kill();
-  enemy3.kill();
-  enemy4.kill();
-<<<<<<< HEAD
-  player.body.x = 25;
-  player.body.y = 192;
-  player.revive();
-=======
->>>>>>> 220b9e9ee5e30351cff43c08260faf7b968d0be8
-  enemySpawn();
-}
 
 function platformerFollow() {
     game.camera.follow(player, Phaser.Camera.FOLLOW_PLATFORMER);

@@ -47,12 +47,15 @@ JMFritz.github.io/GroupWeekProject
 * Click the "download or clone" button and copy the link.
 * In your computers terminal type "git clone" & paste the copied link.
 * Once downloaded you can open the index.html file in the browser of your choice.
-* For game play alterations, refer to gamescripts.js and/or game2.js
-* For launch page alterations, refer to index.html, scripts.js, and styles.css
+* For game play alterations, refer to javascript files (gamescripts.js, game2.js, game3.js, OR game4.js).
+* For launch page alterations, refer to index.html, scripts.js, and styles.css.
+* Alter Mp3 files and background music on each html file through div class named "audio".
 * View the code using the text editor of your choice.
 
 ## Known bugs
 
+* Enemies do not inflict damage or end life upon character collision.
+* Only able to implement remaining 3 levels through completion of level 1.
 
 
 ## Support and contact details

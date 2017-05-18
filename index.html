@@ -2,6 +2,7 @@
 <html>
   <head>
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <!-- Bootstrap link for glyphicon implementation below this line -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <script src="js/jquery-3.2.1.js"></script>
@@ -13,9 +14,9 @@
     <title>Mario Remake</title>
   </head>
   <body>
-    <div class="groupbio">
+    <div class="groupbio"><!-- Screen overlay to display bios -->
     <br><br><br>
-      <div class="container biorows">
+      <div class="container biorows"><!-- Row and Column for collaborators bio section -->
         <div class="row bio">
           <div class="col-6 col-md-3"><a href="https://github.com/NaruzaL" target="_blank"><img class="biophoto"src="assets/pete.png" alt="" /></a></div>
           <div class="col col-md-9">Pete <em>Aspiring Game Developer</em></div>
@@ -37,17 +38,18 @@
         <h1 id="hidebio">Go Back <span class="glyphicon glyphicon-menu-up"></span></h1>
       </div>
     </div>
-    <div class="test">
+    <div class="test"><!-- Use this div to lower overlay biographies -->
       <h1 id="bio">meet the team <span class="glyphicon glyphicon-menu-down"></span></h1>
     </div>
     <div id="launch">
       <div class="header">
         <h1 class ="welcome">phase-rio</h1>
-        <form id="formOne">
+        <form id="formOne"><!-- Username input form -->
           <div class="form-group username">
             <label for="username">Before You Begin</label>
             <input type="text" class="form-control" id="userName" placeholder="Enter your Username">
           </div>
+          <!-- Link to first level of gameplay -->
           <a href="game.html"><button type="button" class="btn level" id="one">Start Game</button></a>
           <button type="button" class="btn home">Go Home</button>
         </form>
@@ -55,12 +57,12 @@
         <div class="options" id="play" value="play">Play</div>
         <div class="options" id="learn" value="howTo">How To Play</div>
       </div>
-      <div class="links">
+      <div class="links"><!-- Links to app store and google play store -->
         <a href="https://www.apple.com/itunes/charts/free-apps/" target="_blank"><img src="assets/apple.png" alt="" /></a><br>
         <a href="https://play.google.com/store?hl=en" target="_blank"><img src="assets/googleplay.png" alt="" /></a>
       </div>
 
-      <div class="container learn">
+      <div class="container learn"><!-- How to Play drop down section -->
         <div class="row">
           <div class="container" id="arrows">
             <img id="arrowsImg" src="assets/arrows.png" alt="">
@@ -86,7 +88,7 @@
             </p>
           </div>
         </div>
-        <div class="top">
+        <div class="top"><!-- Button to retract How to Play drop down section -->
           <h1 id="top">Back to top<span class="glyphicon glyphicon-menu-up"></span></h1>
         </div>
       </div>

@@ -218,7 +218,7 @@ function update() {
   }
 
 function render() {
-  // game.debug.bodyInfo(player, 16, 16)
+
 
 }
 
@@ -266,7 +266,6 @@ gameOver = function(game){
   enemy4.kill();
   player.body.x = 25;
   player.body.y = 192;
-  console.log("TEST");
   player.revive();
   enemySpawn();
 

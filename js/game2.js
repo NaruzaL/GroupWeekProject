@@ -68,9 +68,9 @@ function create() {
     map.setCollisionByIndex(25);
     map.setCollisionByIndex(34);
 
-    map.setCollisionByIndex(267);
+    // map.setCollisionByIndex(267);
     map.setCollisionByIndex(268);
-    map.setCollisionByIndex(300);
+    // map.setCollisionByIndex(300);
     map.setCollisionByIndex(301);
 
     player = game.add.sprite(25, 208, 'hero');
@@ -216,7 +216,7 @@ function update() {
   }
 
 function render() {
-  game.debug.bodyInfo(player, 16, 16)
+  
 
 }
 
@@ -264,7 +264,6 @@ gameOver = function(game){
   enemy4.kill();
   player.body.x = 25;
   player.body.y = 192;
-  console.log("TEST");
   player.revive();
   enemySpawn();
 

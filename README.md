@@ -57,14 +57,13 @@ JMFritz.github.io/GroupWeekProject
 * Enemies do not inflict damage or end life upon character collision.
 * Only able to implement remaining 3 levels through completion of level 1.
 
-
 ## Support and contact details
 
 Contact pdlazuran@gmail.com, hunter.thomas.parks@gmail.com, luckythelich@hotmail.com, jun.fritz@gmail.com with any comments, concerns, or questions.
 
 ## Technologies Used
 
-_HTML, CSS, JavaScript, jQuery, Bootstrap, Phaser Framework_
+_HTML, CSS, JavaScript, jQuery, Bootstrap, Phaser Framework, Tiled Map Editor_
 
 ### License
 

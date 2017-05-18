@@ -113,17 +113,6 @@ function update() {
 
   game.physics.arcade.collide(player, layer);
 
-  //  if (game.physics.arcade.collide(this.player, this.enemy)) {
-  //    this.player.kill();
-  //    game.state.start('Over');
-  //  }
-  if(player.body.y >= 227){
-      //isPaused = true;
-      // togglePause();
-      gameOver(game);
-    }
-
-
   player.body.velocity.x = 0;
 
     if (cursors.left.isDown)

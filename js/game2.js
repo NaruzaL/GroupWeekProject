@@ -1,9 +1,9 @@
-var game = new Phaser.Game(480, 240, Phaser.CANVAS, 'mb1', { preload: preload, create: create, update: update, render: render });
+var game = new Phaser.Game(480, 240, Phaser.CANVAS, 'mb2', { preload: preload, create: create, update: update, render: render });
 
 var Keys = Phaser.Keyboard;
 
 function preload() {
-    game.load.tilemap('map', 'assets/marioMap.json', null, Phaser.Tilemap.TILED_JSON);
+    game.load.tilemap('map', 'assets/marioMap2.json', null, Phaser.Tilemap.TILED_JSON);
     game.load.image('marioTileset', 'assets/marioTileset.png');
     game.load.image('marioEnemy', 'assets/marioEnemy.png', 16, 16, 1);
     game.load.spritesheet('hero', 'assets/marioCharacters.png', 16.6, 16.6,);
@@ -40,7 +40,7 @@ function create() {
 
     game.physics.startSystem(Phaser.Physics.ARCADE);
 
-    game.stage.backgroundColor = "#00BFFF";
+    // game.stage.backgroundColor = "#00BFFF";
 
     game.time.desiredFps = 30;
 
@@ -179,9 +179,9 @@ function update() {
       fallInHole();
     }
 
-    if(player.body.x > 3168){
+    if(player.body.x > 2616){
       game.destroy();
-      $("#mb1").load("game2.html");
+      $("#mb1").load("game3.html");
     }
 
     if(player.body.y > 226){

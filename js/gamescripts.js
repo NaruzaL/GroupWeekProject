@@ -202,6 +202,10 @@ function update() {
       game.destroy();
       $("#mb1").load("game2.html");
     }
+
+    if(player.body.y > 226){
+      fallInHole();
+    }
   }
 
 function render() {

@@ -215,11 +215,23 @@ function update() {
       game.destroy();
       $("#mb3").load("game4.html");
     }
+
+    if(player.body.y > 226){
+      fallInHole();
+    }
   }
 
 function render() {
 
 
+}
+
+function fallInHole(){
+  player.body.x = 25;
+  player.body.y = 208;
+  lives -= 1;
+  enemy.kill();
+  enemySpawn();
 }
 
 function enemySpawn(){

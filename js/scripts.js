@@ -36,6 +36,7 @@ $(document).ready(function(){
   $("#hidebio").click(function(){
     $(".groupbio").css({"height" : "0%"});
   });
+  //Continuous background image scroll function
   $(function(){
     var x = 0;
     setInterval(function(){
@@ -43,6 +44,7 @@ $(document).ready(function(){
         $('body').css('background-position', x + 'px 0px');
     }, 10);
   });
+  //Hide How to play section and scroll to main section
   $("#top").click(function(){
     $("#moves").hide();
     $("#arrows").hide();

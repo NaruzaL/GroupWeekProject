@@ -6,7 +6,7 @@ function preload() {
     game.load.tilemap('map', 'assets/marioMap2.json', null, Phaser.Tilemap.TILED_JSON);
     game.load.image('marioTileset', 'assets/marioTileset.png');
     game.load.image('marioEnemy', 'assets/marioEnemy.png', 16, 16, 1);
-    game.load.spritesheet('hero', 'assets/marioCharacters.png', 16.6, 16.6,);
+    game.load.spritesheet('hero', 'assets/marioCharacters.png', 16.6, 16.6);
 }
 
   var map;
